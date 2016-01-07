@@ -13,5 +13,6 @@ require "capistrano/application"
 require "capistrano/configuration"
 require "capistrano/configuration/scm_resolver"
 
+require 'parallel'
 module Capistrano
 end
