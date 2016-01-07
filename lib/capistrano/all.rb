@@ -12,6 +12,7 @@ require 'capistrano/dsl'
 require 'capistrano/application'
 require 'capistrano/configuration'
 
+require 'parallel'
 module Capistrano
 
 end
