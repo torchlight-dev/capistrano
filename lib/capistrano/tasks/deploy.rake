@@ -100,7 +100,7 @@ namespace :deploy do
       on release_roles :all do
         execute :mkdir, '-p', linked_dir_parents(release_path)
 
-        fetch(:linked_dirs).each do |dir|
+        Parallel.each(fetch(:linked_dirs), in_threads: fetch(:linked_dirs).count) do |dir|
           target = release_path.join(dir)
           source = shared_path.join(dir)
           unless test "[ -L #{target} ]"
