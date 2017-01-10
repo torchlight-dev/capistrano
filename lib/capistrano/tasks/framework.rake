@@ -62,7 +62,10 @@ task :deploy do
       updating updated
       publishing published
       finishing finished }.each do |task|
+    start = Time.new
     invoke "deploy:#{task}"
+    finish = Time.new
+    STDOUT.puts "=== deploy:#{task} takes #{finish - start} seconds"
   end
 end
 task default: :deploy
